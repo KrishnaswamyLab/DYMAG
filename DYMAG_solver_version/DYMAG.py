@@ -78,12 +78,15 @@ class DYMAG(torch.nn.Module):
 if __name__ == '__main__':
     # test the model
     num_nodes = 10
-    num_features = 5
+    num_features = 100
     x = torch.randn(num_nodes, num_features)
     edge_index = torch.tensor([[0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
                                [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]], dtype=torch.long)
     batch_index = torch.tensor([0, 0, 0, 0, 0, 1, 1, 1, 1, 1], dtype=torch.long)
-    model = DYMAG(num_features, 5, heat_derivative_func)
+    model = DYMAG(num_features, 1)
     print(model(x, edge_index, batch_index).shape)
     print(model)
+    # get the number of trainable parameters for the model
+    print(sum(p.numel() for p in model.parameters() if p.requires_grad))
+    import pdb; pdb.set_trace()
     

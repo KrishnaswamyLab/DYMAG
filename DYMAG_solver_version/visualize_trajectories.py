@@ -16,7 +16,8 @@ if __name__ == '__main__':
     n_nodes = 25 
     p = 0.2
     num_traj = 5
-    dynamics = 'sprott'
+    dynamics = 'heat'
+    small_perturb = True
     if dynamics == 'sprott':
         phate_knn = 5
         final_t = 100
@@ -38,7 +39,14 @@ if __name__ == '__main__':
     G = nx.erdos_renyi_graph(n_nodes, p)
     edge_index = torch.tensor(list(G.edges)).t().contiguous()
     edge_index = torch.cat([edge_index, edge_index[[1, 0]]], dim=1)
-    x = torch.randn(n_nodes, num_traj) * 10
+    if small_perturb:
+        x = torch.randn(n_nodes, 1) * 2
+        # replicate this n_traj times
+        x = x.repeat(1, num_traj)
+        # add noise
+        x = x + torch.randn(n_nodes, num_traj) 
+    else:
+        x = torch.randn(n_nodes, num_traj)
     # zero center the data
     x = x - x.mean(dim=0)
     batch = torch.tensor([0 for _ in range(n_nodes)], dtype=torch.long)
@@ -164,11 +172,11 @@ if __name__ == '__main__':
         plt.title(f'PHATE of {dynamics} dynamics')
 
         # Save the plot
-        plt.savefig(f'figs/phate_plot_{dynamics}_{final_t}_{sampling_interval}_{phate_knn}_{seed}.png')
+        plt.savefig(f'figs/phate_plot_{dynamics}_{final_t}_{sampling_interval}_{phate_knn}_{seed}_{small_perturb}.png')
         # Show the plot
         plt.show()
         plt.close()
-        print(f'saved to figs/phate_plot_{dynamics}_{final_t}_{sampling_interval}_{phate_knn}_{seed}.png')
+        print(f'saved to figs/phate_plot_{dynamics}_{final_t}_{sampling_interval}_{phate_knn}_{seed}_{small_perturb}.png')
 
         # Plot the results but color by the trajectory
         fig = plt.figure()
@@ -196,6 +204,6 @@ if __name__ == '__main__':
         plt.title(f'PHATE of {dynamics} dynamics')
 
         # Save the plot
-        plt.savefig(f'figs/phate_plot_traj_color_{dynamics}_{final_t}_{sampling_interval}_{phate_knn}_{seed}.png')
+        plt.savefig(f'figs/phate_plot_traj_color_{dynamics}_{final_t}_{sampling_interval}_{phate_knn}_{seed}_{small_perturb}.png')
         # Show the plot
         plt.show()
