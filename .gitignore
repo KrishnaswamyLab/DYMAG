@@ -160,3 +160,9 @@ cython_debug/
 #.idea/
 GDeNet_old/
 old
+DYMAG_solver_version/lyapunov_results
+DYMAG_solver_version/wandb
+DYMAG_solver_version/figs
+DYMAG_solver_version/lightning_logs
+DYMAG_solver_version/data
+*~
