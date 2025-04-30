@@ -160,3 +160,4 @@ cython_debug/
 #.idea/
 GDeNet_old/
 old
+data/
