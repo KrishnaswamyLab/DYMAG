@@ -3,7 +3,7 @@
 Classifier model using the PDE's for graph classification.
 for time, use time convolution layer (set n_time_conv = 1 if don't want time convolution)
 
-Xingzhi Sun
+***
 April 2023
 
 """

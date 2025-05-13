@@ -161,3 +161,7 @@ cython_debug/
 GDeNet_old/
 old
 data/
+schematics/
+figures/
+src/baseline_graph_transformer.py
+.DS_Store

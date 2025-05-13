@@ -2,7 +2,7 @@
 Use Chebyshev polynomials for fast computation of the heat/wave equation solutions.
 This file contains the implementation of the ChebyLayer class.
 
-Xingzhi Sun
+***
 April 2023
 
 for the chebyshev polynomials, refer to:

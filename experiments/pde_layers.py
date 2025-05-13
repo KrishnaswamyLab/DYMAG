@@ -2,7 +2,7 @@
 Use Chebyshev polynomials for fast computation of the heat/wave equation solutions.
 This file contains the implementations of the HeatLayer and the WaveLayer classes.
 
-Xingzhi Sun
+***
 April 2023
 
 written as pytorch_geometric layers.

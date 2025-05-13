@@ -2,7 +2,7 @@
 Classifier model using the PDE's for graph classification.
 Rewritten to add batchnorm and skip connections.
 
-Xingzhi Sun
+***
 May 2023
 
 """

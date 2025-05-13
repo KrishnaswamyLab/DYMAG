@@ -1,7 +1,7 @@
 """
 Creates config.yml and job.txt files for each combination of parameters for tuning.
 
-Xingzhi Sun
+***
 May 2023
 
 """
@@ -10,9 +10,9 @@ from pathlib import Path
 import os
 import itertools
 
-pkg_path = '/gpfs/gibbs/pi/krishnaswamy_smita/xingzhi/Graph_expressivity/'
+pkg_path = '/gpfs/gibbs/pi/***/***/Graph_expressivity/'
 root_path = 'tuning/'
-python_path = '/gpfs/gibbs/pi/krishnaswamy_smita/xingzhi/.conda_envs/pyg/bin/python'
+python_path = '/gpfs/gibbs/pi/***/***/.conda_envs/pyg/bin/python'
 # Define parameter ranges
 params = {
     'pde_type': ['heat', 'wave'],

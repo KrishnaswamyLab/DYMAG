@@ -3,7 +3,7 @@ Prepare datasets
 - add edge weights to the original dataset.
 - get folds for cross validation.
 
-Xingzhi Sun
+***
 May 2023
 
 """
@@ -49,7 +49,7 @@ if __name__ == "__main__":
 
     # Set the number of splits
     n_split = 10
-    root_path = "/gpfs/gibbs/pi/krishnaswamy_smita/xingzhi/Graph_expressivity"
+    root_path = "/gpfs/gibbs/pi/***/***/Graph_expressivity"
     
     data_root_path = f"{root_path}/data/tmp"
 

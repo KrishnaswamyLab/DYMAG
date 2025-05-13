@@ -3,7 +3,7 @@
 """
 train function for the classifier using the PDE's for graph classification.
 
-Xingzhi Sun
+***
 April 2023
 
 """
