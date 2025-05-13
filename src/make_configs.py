@@ -10,9 +10,9 @@ from pathlib import Path
 import os
 import itertools
 
-pkg_path = '/gpfs/gibbs/pi/***/***/Graph_expressivity/'
+pkg_path = '/***/***/pi/***/***/Graph_expressivity/'
 root_path = 'classification_experiments/'
-python_path = '/gpfs/gibbs/pi/***/***/.conda_envs/pyg/bin/python'
+python_path = '/***/***/pi/***/***/.conda_envs/pyg/bin/python'
 # Define parameter ranges
 params = {
     'pde_type': ['heat', 'wave'],

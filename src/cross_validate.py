@@ -4,7 +4,7 @@ For cross-validation for the experiments
 May 2023
 """
 import sys
-sys.path.insert(0, '/gpfs/gibbs/pi/***/***/Graph_expressivity/')
+sys.path.insert(0, '/***/***/pi/***/***/Graph_expressivity/')
 import argparse
 import pickle
 import torch
@@ -122,7 +122,7 @@ def load_config_from_yaml(yaml_file):
     return argparse.Namespace(**config_dict)
 
 if __name__ == "__main__":
-    # root_path = '/gpfs/gibbs/pi/***/***/Graph_expressivity'
+    # root_path = '/***/***/pi/***/***/Graph_expressivity'
 
     parser = get_parser()
     args = parser.parse_args()

@@ -49,7 +49,7 @@ if __name__ == "__main__":
 
     # Set the number of splits
     n_split = 10
-    root_path = "/gpfs/gibbs/pi/***/***/Graph_expressivity"
+    root_path = "/***/***/pi/***/***/Graph_expressivity"
     
     data_root_path = f"{root_path}/data/tmp"
 
