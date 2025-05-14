@@ -163,5 +163,4 @@ old
 data/
 schematics/
 figures/
-src/baseline_graph_transformer.py
 .DS_Store
