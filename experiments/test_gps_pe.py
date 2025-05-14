@@ -11,7 +11,9 @@ def train(model, loader, optimizer, device):
     for data in loader:
         data = data.to(device)
         optimizer.zero_grad()
-        out  = model(data.x, data.edge_index, data.batch, lap_pe=data.lap_pe, rw_pe=data.rw_pe)
+        lap_pe = getattr(data, 'lap_pe', None)
+        rw_pe  = getattr(data, 'rw_pe',  None)
+        out  = model(data.x, data.edge_index, data.batch, lap_pe=lap_pe, rw_pe=rw_pe)
         loss = F.cross_entropy(out, data.y)
         loss.backward()
         optimizer.step()
@@ -25,7 +27,9 @@ def test(model, loader, device):
     correct = 0
     for data in loader:
         data = data.to(device)
-        out  = model(data.x, data.edge_index, data.batch, lap_pe=data.lap_pe, rw_pe=data.rw_pe)
+        lap_pe = getattr(data, 'lap_pe', None)
+        rw_pe  = getattr(data, 'rw_pe',  None)
+        out  = model(data.x, data.edge_index, data.batch, lap_pe=lap_pe, rw_pe=rw_pe)
         pred = out.argmax(dim=1)
         correct += (pred == data.y).sum().item()
     return correct / len(loader.dataset)
@@ -51,7 +55,7 @@ def main():
         print(f"\n--- Fold {fold+1}/{args.folds} ---")
 
         train_loader, test_loader, in_dim, n_classes = get_tudataset_with_kfold_pe(
-            args.dataset, fold_idx=fold, num_folds=args.folds, batch_size=32, use_pe=True)
+            args.dataset, fold_idx=fold, num_folds=args.folds, batch_size=32)
 
         model = GraphGPS(in_dim, args.hidden, n_classes,
                          num_layers=args.layers, heads=args.heads).to(device)
